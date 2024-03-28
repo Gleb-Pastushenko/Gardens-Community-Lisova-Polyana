@@ -1,1 +1,5 @@
-Start Project
+To RUN the React project change dir to "frontend" folder and then run:
+npm start
+
+To RUN the Django project change dir to "backend" folder and the run:
+python manage.py runserver
