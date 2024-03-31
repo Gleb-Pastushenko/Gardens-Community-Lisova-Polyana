@@ -1,15 +1,16 @@
 import { Row, Col } from 'react-bootstrap'
 
 import { news } from '../news'
+import NewsItem from '../components/NewsItem'
 
 function NewsScreen() {
   return (
     <div>
       <h1>Новини</h1>
-      <Row>
+      <Row className="row-gap-4 py-3">
         {news.map(newsItem => (
-          <Col key={newsItem._id} sm={12} md={6}>
-            <h3>{newsItem.title}</h3>
+          <Col key={newsItem._id} sm={12} md={6} lg={4}>
+            <NewsItem newsItem={newsItem} />
           </Col>
         ))}
       </Row>

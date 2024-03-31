@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main>
+      <main className="py-3">
         <Container>
           <NewsScreen />
         </Container>
