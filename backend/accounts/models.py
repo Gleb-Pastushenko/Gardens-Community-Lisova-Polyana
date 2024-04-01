@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
 
 class UserManager(BaseUserManager):
     def create_user(self, email, first_name, last_name, fathers_name, birth_date, home_address, phone_number, photo, password=None):
@@ -56,6 +56,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_number = models.CharField(max_length=15)
     photo = models.ImageField(upload_to='users/%Y/%m/%d/', blank=True)
     auth_token = models.CharField(max_length=100, blank=True)
+    groups = models.ManyToManyField(Group, related_name='custom_user_groups')
+    user_permissions = models.ManyToManyField(Permission, related_name='custom_user_permissions')
 
     objects = UserManager()
 
