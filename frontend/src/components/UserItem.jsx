@@ -1,6 +1,6 @@
 import { Card, Col, Row } from 'react-bootstrap'
 
-function UserItem({ userItem }) {
+function UserItem({ userItem, setModalShow, setUserClicked }) {
   const fullName = `${userItem.first_name} ${userItem.last_name} ${userItem.fathers_name}`
   const lastPlotIdx = userItem.land_plot.length - 1
 
@@ -8,8 +8,17 @@ function UserItem({ userItem }) {
     <span key={idx}>{item.number}{idx !== lastPlotIdx ? ", " : ""}</span>
   ))
 
+  const handleCardClick = e => {
+    setUserClicked({
+      userItem: userItem,
+      fullName: fullName,
+      landPlots: LandPlots,
+    })
+    setModalShow(true)
+  }
+
   return (
-    <Card>
+    <Card onClick={handleCardClick}>
       <Row className="g-0">
         <Col xs={4}>
           <Card.Img src={`/users-photos/${userItem.photo}`} />
@@ -21,7 +30,6 @@ function UserItem({ userItem }) {
           </Card.Body>
         </Col>
       </Row>
-
     </Card>
   )
 }
