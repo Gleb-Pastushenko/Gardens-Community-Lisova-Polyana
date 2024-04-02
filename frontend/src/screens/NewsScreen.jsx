@@ -19,3 +19,4 @@ function NewsScreen() {
 }
 
 export default NewsScreen
+
