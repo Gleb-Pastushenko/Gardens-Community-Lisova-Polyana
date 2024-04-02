@@ -6,7 +6,7 @@ import NewsItem from '../components/NewsItem'
 function NewsScreen() {
   return (
     <div>
-      <h1>Новини</h1>
+      <h2>Новини</h2>
       <Row className="row-gap-4 py-3">
         {news.map(newsItem => (
           <Col key={newsItem._id} sm={12} md={6} lg={4}>

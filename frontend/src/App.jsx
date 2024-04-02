@@ -1,20 +1,32 @@
-import { Container } from 'react-bootstrap'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Header from "./components/Header";
-import NewsScreen from "./screens/NewsScreen";
+import Layout from './components/Layout';
+import NewsScreen from './screens/NewsScreen';
+import UsersScreen from './screens/UsersScreen';
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <NewsScreen />,
+      },
+      {
+        path: "/users",
+        element: <UsersScreen />,
+      }
+    ],
+  },
+])
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main className="py-3">
-        <Container>
-          <NewsScreen />
-        </Container>
-      </main>
-
-    </div>
-  );
+    <RouterProvider router={router} />
+  )
 }
 
 export default App;
