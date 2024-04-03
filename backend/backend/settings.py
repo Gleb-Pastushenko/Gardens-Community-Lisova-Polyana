@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "vacancies.apps.VacanciesConfig",
     "advertisements.apps.AdvertisementsConfig",
     "landplots.apps.LandplotsConfig",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [

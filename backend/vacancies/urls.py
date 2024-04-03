@@ -1,10 +1,11 @@
-from django.urls import path
-from .views import ListCreateVacancy, RetrieveUpdateDestroyVacancy, ListCreateCandidate, RetrieveUpdateDestroyCandidate, VoteForCandidate
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import VacancyViewSet, CandidateViewSet
+
+router = DefaultRouter()
+router.register(r'vacancies', VacancyViewSet)
+router.register(r'candidates', CandidateViewSet)
 
 urlpatterns = [
-    path('vacancies/', ListCreateVacancy.as_view(), name='vacancy-list-create'),
-    path('vacancies/<int:pk>/', RetrieveUpdateDestroyVacancy.as_view(), name='vacancy-detail'),
-    path('candidates/', ListCreateCandidate.as_view(), name='candidate-list-create'),
-    path('candidates/<int:pk>/', RetrieveUpdateDestroyCandidate.as_view(), name='candidate-detail'),
-    path('candidates/<int:pk>/vote/', VoteForCandidate.as_view(), name='candidate-vote'),
+    path('', include(router.urls)),
 ]
