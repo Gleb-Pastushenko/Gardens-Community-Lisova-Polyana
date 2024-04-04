@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import LandPlot, ElectricityMeterIndicator
 
-# Register your models here.
+admin.site.register(LandPlot)
+admin.site.register(ElectricityMeterIndicator)
