@@ -25,8 +25,8 @@ SECRET_KEY = "django-insecure-zy7(l0y=ito6ur%9p9to9zfp+h5dj*bd8xuhj%f=b6bv4v_hb#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://lisova-polyana-77olb2pr5a-uc.a.run.app']
 
 # Application definition
 
