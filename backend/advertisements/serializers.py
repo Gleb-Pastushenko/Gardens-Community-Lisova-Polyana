@@ -4,9 +4,9 @@ from .models import Advertisement, Album
 class AdvertisementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Advertisement
-        fields = ['user', 'text', 'title']
+        fields = '__all__'
 
 class AlbumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Album
-        fields = ['advertisement', 'picture']
+        fields = '__all__'

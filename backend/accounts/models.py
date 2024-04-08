@@ -33,7 +33,6 @@ class UserManager(BaseUserManager):
             phone_number=phone_number,
             photo=photo,
         )
-        user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
@@ -41,16 +40,10 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    PERMISSIONS_CHOICES = (
-        ('User', 'User'),
-        ('Admin', 'Admin'),
-    )
-
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     fathers_name = models.CharField(max_length=30)
-    permission = models.CharField(max_length=5, choices=PERMISSIONS_CHOICES, default='User')
     birth_date = models.DateField()
     home_address = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=15)
