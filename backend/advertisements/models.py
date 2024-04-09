@@ -12,6 +12,6 @@ class Advertisement(models.Model):
     def __str__(self):
         return self.title
 
-class Album(models.Model):
+class Image(models.Model):
     advertisement = models.ForeignKey(Advertisement, related_name='adv_pics', on_delete=models.CASCADE)
     picture = models.ImageField(upload_to=get_upload_to)

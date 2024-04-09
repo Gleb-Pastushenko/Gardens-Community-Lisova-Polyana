@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Advertisement, Album
+from .models import Advertisement, Image
 
 admin.site.register(Advertisement)
-admin.site.register(Album)
+admin.site.register(Image)

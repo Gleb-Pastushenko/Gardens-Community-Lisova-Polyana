@@ -9,3 +9,7 @@ class LandPlotViewSet(viewsets.ModelViewSet):
 class EMIViewSet(viewsets.ModelViewSet):
     queryset = ElectricityMeterIndicator.objects.all()
     serializer_class = EMISerializer
+    
+    def get_queryset(self):
+        landplot_id = self.kwargs.get('landplot_id')
+        return ElectricityMeterIndicator.objects.filter(land_plot=landplot_id)

@@ -11,7 +11,7 @@ class CandidateViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         vacancy_id = self.kwargs.get('vacancy_id')
-        return Candidate.objects.filter(vacancy_id=vacancy_id)
+        return Candidate.objects.filter(vacancy=vacancy_id)
 
     def perform_update(self, serializer):
         instance = self.get_object()
