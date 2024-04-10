@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "advertisements.apps.AdvertisementsConfig",
     "landplots.apps.LandplotsConfig",
     "rest_framework",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
